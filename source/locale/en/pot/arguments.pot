@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenDroneMap 2.0.0\n"
+"Project-Id-Version: OpenDroneMap 2.3.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-15 09:17-0500\n"
+"POT-Creation-Date: 2021-01-14 14:19-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,611 +27,786 @@ msgid "Arguments"
 msgstr ""
 
 #: ../../../arguments.rst:10
-#: 5bf00306225e4afa8acc0ae52e820ffa
-msgid "Show help message and exit."
+#: 9d432242c11c492e8063a4720fd64883
+msgid "``--build-overviews``"
+msgstr ""
+
+#: ../../../arguments.rst:10
+#: bb54573265894dd896eb691735517279
+msgid "Build orthophoto overviews for faster display in programs such as QGIS. Default: ``False``"
 msgstr ""
 
 #: ../../../arguments.rst:13
-#: a1296b7297cb4362997eb832a4df44e6
-msgid "Path to input images."
+#: faa596867966454081ab3acf1c08c2b5
+msgid "``--camera-lens`` auto |  perspective |  brown |  fisheye |  spherical"
+msgstr ""
+
+#: ../../../arguments.rst:13
+#: de4fe5a4a091417c819c08966866004a
+msgid "Set a camera projection type. Manually setting a value can help improve geometric undistortion. By default the application tries to determine a lens type from the images metadata. . Default: ``auto``"
 msgstr ""
 
 #: ../../../arguments.rst:16
-#: 37df17e52b914b818d46a0c89b4f1ad4
-msgid "Path to the project folder."
+#: 3296134a20ec49d7afad9140010f581a
+msgid "``--cameras`` <json>"
+msgstr ""
+
+#: ../../../arguments.rst:16
+#: d28ae2d8c88948bfb50cbaa8620d3d70
+msgid "Use the camera parameters computed from another dataset instead of calculating them. Can be specified either as path to a cameras.json file or as a JSON string representing the contents of a cameras.json file. Default: ``"
 msgstr ""
 
 #: ../../../arguments.rst:19
-#: fd5788e1572640119083c454a7e6f0af
-msgid "Resizes images by the largest side for opensfm. Set to ``-1`` to disable. Disabling is useful for deriving maximum quality from imagery, but can be computationally expensive."
+#: 5526e53ffcd941e483b2bd3b66ab5de4
+msgid "``--crop`` <positive float>"
 msgstr ""
 
-#: ../../../arguments.rst:21
-#: 296ffc1175094be5b9ba9414fbe9ba27
-msgid "Default: ``2048``"
+#: ../../../arguments.rst:19
+#: 8b4d9a13cb32444a8417051b37c03a4c
+msgid "Automatically crop image outputs by creating a smooth buffer around the dataset boundaries, shrinked by N meters. Use 0 to disable cropping. Default: ``3``"
 msgstr ""
 
-#: ../../../arguments.rst:24
-#: ../../../arguments.rst:32
-#: ../../../arguments.rst:40
-#: 0ba8d09f4960491984c531e8c335e737
-#: 0ba8d09f4960491984c531e8c335e737
-#: 0ba8d09f4960491984c531e8c335e737
-msgid "Options: ``dataset`` | ``split`` | ``merge`` | ``opensfm`` | ``mve`` | ``odm_filterpoints`` | ``odm_meshing`` | ``mvs_texturing`` | ``odm_georeferencing`` | ``odm_dem`` | ``odm_orthophoto``"
+#: ../../../arguments.rst:22
+#: 16f48b360d5a4dd49914021fb6a59780
+msgid "``--debug``"
 msgstr ""
 
-#: ../../../arguments.rst:29
-#: 762d8ff9c3b94ba6a7f0786bc7636272
-msgid "Generates Entwine Point Cloud. Useful on its own, this flag is automatically added when running in WebODM and useful for creating the correct directory structure when running on NodeODM or command line for import into WebODM."
+#: ../../../arguments.rst:22
+#: 51f0cf7bc32e43c890dd228311b6b506
+msgid "Print debug messages. Default: ``False``"
+msgstr ""
+
+#: ../../../arguments.rst:25
+#: 1b6b375c005243f28e042f5d415cd102
+msgid "``--dem-decimation`` <positive integer>"
+msgstr ""
+
+#: ../../../arguments.rst:25
+#: 6c60cd14b1ca4862b7c29fffc0c6cb0b
+msgid "Decimate the points before generating the DEM. 1 is no decimation (full quality). 100 decimates ~99%% of the points. Useful for speeding up generation of DEM results in very large datasets. Default: ``1``"
+msgstr ""
+
+#: ../../../arguments.rst:28
+#: 7e60274184a543d7b081a75a75018b86
+msgid "``--dem-euclidean-map``"
+msgstr ""
+
+#: ../../../arguments.rst:28
+#: 4c51400122124407833740ea33c6d938
+msgid "Computes an euclidean raster map for each DEM. The map reports the distance from each cell to the nearest NODATA value (before any hole filling takes place). This can be useful to isolate the areas that have been filled. Default: ``False``"
+msgstr ""
+
+#: ../../../arguments.rst:31
+#: c08c66fded1a4f7cb93da8d728a0fc74
+msgid "``--dem-gapfill-steps`` <positive integer>"
+msgstr ""
+
+#: ../../../arguments.rst:31
+#: aa383ac21fd942abbb06a05fa2cd4c59
+msgid "Number of steps used to fill areas with gaps. Set to 0 to disable gap filling. Starting with a radius equal to the output resolution, N different DEMs are generated with progressively bigger radius using the inverse distance weighted (IDW) algorithm and merged together. Remaining gaps are then merged using nearest neighbor interpolation. Default: ``3``"
+msgstr ""
+
+#: ../../../arguments.rst:34
+#: e7a8cb7ff3374bc38862942f51b7c475
+msgid "``--dem-resolution`` <float>"
+msgstr ""
+
+#: ../../../arguments.rst:34
+#: fcd5faff631d4e94aab46bf02c6148dc
+msgid "DSM/DTM resolution in cm / pixel. Note that this value is capped by a ground sampling distance (GSD) estimate. To remove the cap, check --ignore-gsd also. Default: ``5``"
 msgstr ""
 
 #: ../../../arguments.rst:37
-#: dc45a84aa0ec40d48e3443c426129216
-msgid "Force rerun of all tasks."
+#: 337a1994f14a4015bd514c908b472068
+msgid "``--depthmap-resolution`` <positive float>"
 msgstr ""
 
-#: ../../../arguments.rst:45
-#: 9d06f59e5740440e91ad0f2236d658a4
-msgid "Projection used to transform the model into geographic coordinates."
+#: ../../../arguments.rst:37
+#: 4e64c9eadbcf405bb0f49b8225d41208
+msgid "Legacy option (use --pc-quality instead). Controls the density of the point cloud by setting the resolution of the depthmap images. Higher values take longer to compute but produce denser point clouds. Default: ``640``"
 msgstr ""
 
-#: ../../../arguments.rst:48
-#: 2a7871f5589e456d9b5fcc7a8a9020ce
-msgid "Minimum number of features to extract per image. More features leads to better results but slower execution."
+#: ../../../arguments.rst:40
+#: d2dae3b888ff4b3ab24d8b596b8b62b0
+msgid "``--dsm``"
 msgstr ""
 
-#: ../../../arguments.rst:50
-#: 59109fac84e543a8be486179ed45f5e1
-msgid "Default: ``8000``"
+#: ../../../arguments.rst:40
+#: d997af9f85ef43d5a73f648cba817c67
+msgid "Use this tag to build a DSM (Digital Surface Model, ground + objects) using a progressive morphological filter. Check the --dem* parameters for finer tuning. Default: ``False``"
 msgstr ""
 
-#: ../../../arguments.rst:53
+#: ../../../arguments.rst:43
+#: f5f92c2b996447fba5d6ad8cbc84870b
+msgid "``--dtm``"
+msgstr ""
+
+#: ../../../arguments.rst:43
+#: 5b14f88eb2cb44f287ba191ea800bc0c
+msgid "Use this tag to build a DTM (Digital Terrain Model, ground only) using a simple morphological filter. Check the --dem* and --smrf* parameters for finer tuning. Default: ``False``"
+msgstr ""
+
+#: ../../../arguments.rst:46
+#: 0ba8d09f4960491984c531e8c335e737
+msgid "``--end-with,-e`` dataset |  split |  merge |  opensfm |  openmvs |  odm_filterpoints |  odm_meshing |  mvs_texturing |  odm_georeferencing |  odm_dem |  odm_orthophoto |  odm_report"
+msgstr ""
+
+#: ../../../arguments.rst:46
+#: 5177def651914acd8ce64db18390b904
+msgid "End processing at this stage. . Default: ``odm_report``"
+msgstr ""
+
+#: ../../../arguments.rst:49
+#: e2dff481a1294be0bf5d768ab323be78
+msgid "``--fast-orthophoto``"
+msgstr ""
+
+#: ../../../arguments.rst:49
+#: 94373544199649c3808ebb5a69aba34b
+msgid "Skips dense reconstruction and 3D model generation. It generates an orthophoto directly from the sparse reconstruction. If you just need an orthophoto and do not need a full 3D model, turn on this option. Default: ``False``"
+msgstr ""
+
+#: ../../../arguments.rst:52
+#: faa596867966454081ab3acf1c08c2b5
+msgid "``--feature-quality`` ultra |  high |  medium |  low |  lowest"
+msgstr ""
+
+#: ../../../arguments.rst:52
 #: 1307a9ff8ab1493aaf883db2b1801f32
-msgid "Set feature extraction quality. Higher quality generates better features, but requires more memory and takes longer."
+msgid "Set feature extraction quality. Higher quality generates better features, but requires more memory and takes longer. . Default: ``high``"
 msgstr ""
 
 #: ../../../arguments.rst:55
-#: faa596867966454081ab3acf1c08c2b5
-msgid "Options: ``ultra`` | ``high`` | ``medium`` | ``low`` | ``lowest``"
+#: 7a8d26113e694d0fbfe6138ee87ab3ac
+msgid "``--feature-type`` sift |  hahog"
 msgstr ""
 
-#: ../../../arguments.rst:57
-#: f48456d917dc4fe293ec9de5378245d8
-msgid "Default: ``high``"
+#: ../../../arguments.rst:55
+#: 773a43c2a773420298bc25d9f8e0cd25
+msgid "Choose the algorithm for extracting keypoints and computing descriptors. . Default: ``sift``"
 msgstr ""
 
-#: ../../../arguments.rst:60
-#: bf8055bdda8d44ddb0c8348371fbe36c
-msgid "Number of nearest images to pre-match based on GPS exif data. Set to ``0`` to skip pre-matching. Neighbors works together with Distance parameter, set both to 0 to not use pre-matching. OpenSFM uses both parameters at the same time, Bundler uses only one which has value, prefering the Neighbors parameter."
+#: ../../../arguments.rst:58
+#: 17ae47ab375f409c8d5e15b1ecd4e734
+msgid "``--force-gps``"
 msgstr ""
 
-#: ../../../arguments.rst:62
-#: 99db7bbf5b844d28952836a394e84dce
-msgid "Default: ``8``"
+#: ../../../arguments.rst:58
+#: 6e22527b538747ac9ee86b3d542d9965
+msgid "Use images' GPS exif data for reconstruction, even if there are GCPs present.This flag is useful if you have high precision GPS measurements. If there are no GCPs, this flag does nothing. Default: ``False``"
 msgstr ""
 
-#: ../../../arguments.rst:65
-#: 8c651291470445e1ae0faa1db8cd2853
-msgid "Distance threshold in meters to find pre-matching images based on GPS exif data. Set both ``matcher-neighbors`` and this to ``0`` to skip pre-matching."
+#: ../../../arguments.rst:61
+#: 6c50c364bf544febb1d0fc577c59fb33
+msgid "``--gcp`` <path string>"
+msgstr ""
+
+#: ../../../arguments.rst:61
+#: ed6a8b2a17334ad4988c9253abc45166
+msgid "Path to the file containing the ground control points used for georeferencing. The file needs to use the following format: EPSG:<code> or <+proj definition>geo_x geo_y geo_z im_x im_y image_name [gcp_name] [extra1] [extra2]Default: ``None``"
+msgstr ""
+
+#: ../../../arguments.rst:64
+#: 0986d01cc4204a84801b511bbf064776
+msgid "``--geo`` <path string>"
+msgstr ""
+
+#: ../../../arguments.rst:64
+#: 40a05e82b16a4b968597034767ebd6c5
+msgid "Path to the image geolocation file containing the camera center coordinates used for georeferencing. Note that omega/phi/kappa are currently not supported (you can set them to 0). The file needs to use the following format: EPSG:<code> or <+proj definition>image_name geo_x geo_y geo_z [omega (degrees)] [phi (degrees)] [kappa (degrees)] [horz accuracy (meters)] [vert accuracy (meters)]Default: ``None``"
 msgstr ""
 
 #: ../../../arguments.rst:67
-#: 99db7bbf5b844d28952836a394e84dce
-msgid "Default: ``0``"
+#: f916b2ce9a40488fb3f9617bc8ff6d15
+msgid "``--gps-accuracy`` <positive float>"
+msgstr ""
+
+#: ../../../arguments.rst:67
+#: cd8c05d0b7244630b6e9d782d0fc2476
+msgid "Set a value in meters for the GPS Dilution of Precision (DOP) information for all images. If your images are tagged with high precision GPS information (RTK), this value will be automatically set accordingly. You can use this option to manually set it in case the reconstruction fails. Lowering this option can sometimes help control bowling-effects over large areas. Default: ``10``"
 msgstr ""
 
 #: ../../../arguments.rst:70
-#: f0a500ac7c3843c88e988e7955ef8f8b
-msgid "Turn off camera parameter optimization during bundler. Off by default unless ``--camera`` parameter used."
+#: 1f935b3472714dab95681d72037b98dd
+msgid "``-h,--help``"
+msgstr ""
+
+#: ../../../arguments.rst:70
+#: 5bf00306225e4afa8acc0ae52e820ffa
+msgid "show this help message and exit"
 msgstr ""
 
 #: ../../../arguments.rst:73
-#: de4fe5a4a091417c819c08966866004a
-msgid "Set a camera projection type. Manually setting a value can help improve geometric undistortion. By default the application tries to determine a lens type from the images metadata."
+#: c4dac38cd0284a2ebb079663dbb3b8cc
+msgid "``--ignore-gsd``"
 msgstr ""
 
-#: ../../../arguments.rst:75
-#: faa596867966454081ab3acf1c08c2b5
-msgid "Options: ``auto`` | ``perspective`` | ``brown`` | ``fisheye`` | ``spherical``"
+#: ../../../arguments.rst:73
+#: 6b032069d7964c869dac6cf41e078919
+msgid "Ignore Ground Sampling Distance (GSD). GSD caps the maximum resolution of image outputs and resizes images when necessary, resulting in faster processing and lower memory usage. Since GSD is an estimate, sometimes ignoring it can result in slightly better image output quality. Default: ``False``"
 msgstr ""
 
-#: ../../../arguments.rst:77
-#: f48456d917dc4fe293ec9de5378245d8
-msgid "Default: ``auto``"
+#: ../../../arguments.rst:76
+#: d91635ca8532458cad4351dcb505a3bc
+msgid "``--matcher-distance`` <integer>"
 msgstr ""
 
-#: ../../../arguments.rst:80
-#: 0946c0a572ac4cf1a2a47e697b30e69c
-msgid "Set the radiometric calibration to perform on images. When processing multispectral images you should set this option to obtain reflectance values (otherwise you will get digital number (DN) values)."
+#: ../../../arguments.rst:76
+#: 8c651291470445e1ae0faa1db8cd2853
+msgid "Distance threshold in meters to find pre-matching images based on GPS exif data. Set both matcher-neighbors and this to 0 to skip pre-matching. Default: ``0``"
+msgstr ""
+
+#: ../../../arguments.rst:79
+#: a6acfa3646324287a637ff24ef938060
+msgid "``--matcher-neighbors`` <integer>"
+msgstr ""
+
+#: ../../../arguments.rst:79
+#: bf8055bdda8d44ddb0c8348371fbe36c
+msgid "Number of nearest images to pre-match based on GPS exif data. Set to 0 to skip pre-matching. Neighbors works together with Distance parameter, set both to 0 to not use pre-matching. Default: ``8``"
 msgstr ""
 
 #: ../../../arguments.rst:82
-#: e2cc797facab45aaba4b4093a6d7040d
-msgid "[``camera``] applies black level, vignetting, row gradient gain/exposure compensation (if appropriate EXIF tags are found)."
+#: a9f96166f9e14c07b77a4fb1bea2df86
+msgid "``--matcher-type`` flann |  bow"
 msgstr ""
 
-#: ../../../arguments.rst:84
-#: 3723fa6b8b9140e7ba0001085406d907
-msgid "[``camera+sun``] is experimental, applies all the corrections of [``camera``] and additionally compensates for spectral radiance registered via a downwelling light sensor (DLS) taking in consideration the angle of the sun."
+#: ../../../arguments.rst:82
+#: b8cd10079a434e81ba7601b247b6c560
+msgid "Matcher algorithm, Fast Library for Approximate Nearest Neighbors or Bag of Words. FLANN is slower, but more stable. BOW is faster, but can sometimes miss valid matches. . Default: ``flann``"
 msgstr ""
 
-#: ../../../arguments.rst:86
-#: 7c68f43305ef409b9e486a720f31d27a
-msgid "Options: ``none`` | ``camera`` | ``camera+sun``"
+#: ../../../arguments.rst:85
+#: a0fdc3c964f54de6ae6a797da1a6147b
+msgid "``--max-concurrency`` <positive integer>"
+msgstr ""
+
+#: ../../../arguments.rst:85
+#: 6fdb3ebaafb942dfbe048a54a368b90d
+msgid "The maximum number of processes to use in various processes. Peak memory requirement is ~1GB per thread and 2 megapixel image resolution. Default: ``4``"
 msgstr ""
 
 #: ../../../arguments.rst:88
-#: ../../../arguments.rst:252
-#: c819e79f060c43c0b84a275e7ec8a9b1
-#: c819e79f060c43c0b84a275e7ec8a9b1
-msgid "Default: ``none``"
+#: 54af6fd36006442096d166f38f90e0f3
+msgid "``--merge`` all |  pointcloud |  orthophoto |  dem"
+msgstr ""
+
+#: ../../../arguments.rst:88
+#: e9bd69bc21b74b71be2ef6da6ddaef20
+msgid "Choose what to merge in the merge step in a split dataset. By default all available outputs are merged. Options: ['all', 'pointcloud', 'orthophoto', 'dem']. Default: ``all``"
 msgstr ""
 
 #: ../../../arguments.rst:91
-#: 6fdb3ebaafb942dfbe048a54a368b90d
-msgid "The maximum number of processes to use in various processes. Peak memory requirement is ~1GB per thread and 2 megapixel image resolution."
+#: f0a4a1de5ec34ce598bcc68d733bdcd4
+msgid "``--mesh-octree-depth`` <positive integer>"
 msgstr ""
 
-#: ../../../arguments.rst:93
-#: 5aa1625a41d043deb323e8ff45c164b0
-msgid "Default: *number of cores*"
+#: ../../../arguments.rst:91
+#: 40de47aa4aef438695d8c62d122819ef
+msgid "Octree depth used in the mesh reconstruction, increase to get more vertices, recommended values are 8-12. Default: ``11``"
 msgstr ""
 
-#: ../../../arguments.rst:96
-#: 4e64c9eadbcf405bb0f49b8225d41208
-msgid "Controls the density of the point cloud by setting the resolution of the depthmap images. Higher values take longer to compute and more memory but produce denser point clouds."
+#: ../../../arguments.rst:94
+#: 07a7e4ff2c3540bba600fe18f688165c
+msgid "``--mesh-size`` <positive integer>"
 msgstr ""
 
-#: ../../../arguments.rst:98
-#: 838dbab7a7494f4bb4c944a756a143ab
-msgid "Default: ``640``"
+#: ../../../arguments.rst:94
+#: 12d1473fca734ff49083c522edf55d93
+msgid "The maximum vertex count of the output mesh. Default: ``200000``"
 msgstr ""
 
-#: ../../../arguments.rst:101
-#: 4b52e771e75a43529a99dd342b8ad2c1
-msgid "Minimum number of views that should reconstruct a point for it to be valid. Use lower values if your images have less overlap. Lower values result in denser point clouds but with more noise. Only applies if using OpenSfM for dense matching."
+#: ../../../arguments.rst:97
+#: 5ffe1461b86d4b66a46d1b64a6945f83
+msgid "``--min-num-features`` <integer>"
+msgstr ""
+
+#: ../../../arguments.rst:97
+#: 19cb34d70af14241b08131cd5c426b73
+msgid "Minimum number of features to extract per image. More features can be useful for finding more matches between images, potentially allowing the reconstruction of areas with little overlap or insufficient features. More features also slow down processing. Default: ``8000``"
+msgstr ""
+
+#: ../../../arguments.rst:100
+#: c969be4d7dd94f9a947340992953e3a5
+msgid "``name`` <project name>"
+msgstr ""
+
+#: ../../../arguments.rst:100
+#: 32217017acaf4f81b06896ce5e13709e
+msgid "Name of dataset (i.e subfolder name within project folder). Default: ``code``"
 msgstr ""
 
 #: ../../../arguments.rst:103
-#: ../../../arguments.rst:163
-#: ../../../arguments.rst:271
-#: 88b99b17996c4c8b9554e430c0eee071
-#: 88b99b17996c4c8b9554e430c0eee071
-#: 88b99b17996c4c8b9554e430c0eee071
-msgid "Default: ``3``"
+#: 21b802f5dbf14929a71bd81199ec121f
+msgid "``--opensfm-depthmap-method`` PATCH_MATCH |  BRUTE_FORCE |  PATCH_MATCH_SAMPLE"
+msgstr ""
+
+#: ../../../arguments.rst:103
+#: 7c3f161dbf274fe9b97cd4262d7211b2
+msgid "Raw depthmap computation algorithm. PATCH_MATCH and PATCH_MATCH_SAMPLE are faster, but might miss some valid points. BRUTE_FORCE takes longer but produces denser reconstructions. Default: ``PATCH_MATCH``"
 msgstr ""
 
 #: ../../../arguments.rst:106
-#: 7c3f161dbf274fe9b97cd4262d7211b2
-msgid "Raw depthmap computation algorithm. ``PATCH_MATCH`` and ``PATCH_MATCH_SAMPLE`` are faster, but might miss some valid points. ``BRUTE_FORCE`` takes longer but produces denser reconstructions."
+#: aee4e053a2d94c98b01b9dc0724c50f1
+msgid "``--opensfm-depthmap-min-consistent-views`` <integer: 2 <= x <= 9>"
 msgstr ""
 
-#: ../../../arguments.rst:108
-#: 714c9041cdfa4887af9f5413243158d0
-msgid "Options: ``PATCH_MATCH`` | ``PATCH_MATCH_SAMPLE`` | ``BRUTE_FORCE``"
+#: ../../../arguments.rst:106
+#: 4b52e771e75a43529a99dd342b8ad2c1
+msgid "Minimum number of views that should reconstruct a point for it to be valid. Use lower values if your images have less overlap. Lower values result in denser point clouds but with more noise. Default: ``3``"
 msgstr ""
 
-#: ../../../arguments.rst:110
-#: cbaf82df4af94c03a1e734d8cbefd61f
-msgid "Default: ``PATCH_MATCH``"
+#: ../../../arguments.rst:109
+#: ce1501ded00949069aed7ad809040529
+msgid "``--opensfm-depthmap-min-patch-sd`` <positive float>"
 msgstr ""
 
-#: ../../../arguments.rst:113
+#: ../../../arguments.rst:109
 #: f49be03c757c4de8b073101786dcd711
-msgid "When using ``PATCH_MATCH`` or ``PATCH_MATCH_SAMPLE``, controls the standard deviation threshold to include patches. Patches with lower standard deviation are ignored."
+msgid "When using PATCH_MATCH or PATCH_MATCH_SAMPLE, controls the standard deviation threshold to include patches. Patches with lower standard deviation are ignored. Default: ``1``"
+msgstr ""
+
+#: ../../../arguments.rst:112
+#: b591dfcbb2f34e32a522e438ecd4bcc5
+msgid "``--optimize-disk-space``"
+msgstr ""
+
+#: ../../../arguments.rst:112
+#: 678212a55dd4442294d64fe32ba38696
+msgid "Delete heavy intermediate files to optimize disk space usage. This affects the ability to restart the pipeline from an intermediate stage, but allows datasets to be processed on machines that don't have sufficient disk space available. Default: ``False``"
 msgstr ""
 
 #: ../../../arguments.rst:115
-#: ../../../arguments.rst:281
-#: 790534700a5344a8a73575bee28f9174
-#: 790534700a5344a8a73575bee28f9174
-msgid "Default: ``1``"
+#: 2ccae1354a9244789fbbbe356ba5495d
+msgid "``--orthophoto-compression`` JPEG |  LZW |  PACKBITS |  DEFLATE |  LZMA |  NONE"
+msgstr ""
+
+#: ../../../arguments.rst:115
+#: fa9586d8c9964d12af506e7fbaba211e
+msgid "Set the compression to use for orthophotos. . Default: ``DEFLATE``"
 msgstr ""
 
 #: ../../../arguments.rst:118
-#: a9fb769c318440028d0ca29420819c59
-msgid "Run local bundle adjustment for every image added to the reconstruction and a global adjustment every 100 images. Speeds up reconstruction for very large datasets."
+#: 53a7fd0afe824f4e8639bfc1561ef472
+msgid "``--orthophoto-cutline``"
+msgstr ""
+
+#: ../../../arguments.rst:118
+#: faaeac2cec784a968418b021ed02370d
+msgid "Generates a polygon around the cropping area that cuts the orthophoto around the edges of features. This polygon can be useful for stitching seamless mosaics with multiple overlapping orthophotos. Default: ``False``"
 msgstr ""
 
 #: ../../../arguments.rst:121
-#: 64df57356a944e0cb0cc840ca4ec2e93
-msgid "Discard points that have less than a certain confidence threshold. This only affects dense reconstructions performed with MVE. Higher values discard more points."
+#: 8e6bf943a65b4ca3b14984637a367b6b
+msgid "``--orthophoto-no-tiled``"
 msgstr ""
 
-#: ../../../arguments.rst:123
-#: 296ffc1175094be5b9ba9414fbe9ba27
-msgid "Default: ``0.6``"
+#: ../../../arguments.rst:121
+#: 96eda73c55b344769b046cf828a47fe8
+msgid "Set this parameter if you want a striped GeoTIFF. Default: ``False``"
 msgstr ""
 
-#: ../../../arguments.rst:126
-#: b14d87ed9f84456ea2de1cd4d061e889
-msgid "Use a full 3D mesh to compute the orthophoto instead of a 2.5D mesh. This option is a bit faster and provides similar results in planar areas."
+#: ../../../arguments.rst:124
+#: cfc01be57d134b6abfe61237c8c729db
+msgid "``--orthophoto-png``"
 msgstr ""
 
-#: ../../../arguments.rst:129
-#: 28fb4b48d9f84e92baf1267bd703f416
-msgid "Skip generation of a full 3D model. This can save time if you only need 2D results such as orthophotos and DEMs."
+#: ../../../arguments.rst:124
+#: 5a2380275fa04dcd90b00ee054e50597
+msgid "Set this parameter if you want to generate a PNG rendering of the orthophoto. Default: ``False``"
 msgstr ""
 
-#: ../../../arguments.rst:132
-#: 5696e15ae6724efa8bd43d816bc01a8c
-msgid "Use opensfm to compute dense point cloud alternatively."
+#: ../../../arguments.rst:127
+#: 9f50aec10dd248e79caeb45f71fb5770
+msgid "``--orthophoto-resolution`` <float > 0.0>"
 msgstr ""
 
-#: ../../../arguments.rst:135
-#: 6b032069d7964c869dac6cf41e078919
-msgid "Ignore Ground Sampling Distance (GSD). GSD caps the maximum resolution of image outputs and resizes images when necessary, resulting in faster processing and lower memory usage. Since GSD is an estimate, sometimes ignoring it can result in slightly better image output quality."
+#: ../../../arguments.rst:127
+#: ad0663ca70c04bff8a3bac51ce1d9f3a
+msgid "Orthophoto resolution in cm / pixel. Note that this value is capped by a ground sampling distance (GSD) estimate. To remove the cap, check --ignore-gsd also. Default: ``5``"
 msgstr ""
 
-#: ../../../arguments.rst:138
-#: 12d1473fca734ff49083c522edf55d93
-msgid "The maximum vertex count of the output mesh."
+#: ../../../arguments.rst:130
+#: 6fc8f2a00acd4d958a1662ccd0cf8f7c
+msgid "``--pc-classify``"
 msgstr ""
 
-#: ../../../arguments.rst:140
-#: 59109fac84e543a8be486179ed45f5e1
-msgid "Default: ``100000``"
+#: ../../../arguments.rst:130
+#: 7555e78dc4864a339dcb00377e041e3a
+msgid "Classify the point cloud outputs using a Simple Morphological Filter. You can control the behavior of this option by tweaking the --dem-* parameters. Default: ``False``"
 msgstr ""
 
-#: ../../../arguments.rst:143
-#: 40de47aa4aef438695d8c62d122819ef
-msgid "Oct-tree depth used in the mesh reconstruction, increase to get more vertices, recommended values are 8-12."
+#: ../../../arguments.rst:133
+#: 7c4c828224674841abef747be41be584
+msgid "``--pc-csv``"
+msgstr ""
+
+#: ../../../arguments.rst:133
+#: 4db75f783b534a05bf95f0813bb2aba2
+msgid "Export the georeferenced point cloud in CSV format. Default: ``False``"
+msgstr ""
+
+#: ../../../arguments.rst:136
+#: 5c7ead80eee04101b67afde5be9669ee
+msgid "``--pc-ept``"
+msgstr ""
+
+#: ../../../arguments.rst:136
+#: 2bfbfbf57c1d485cba1910e1d319a972
+msgid "Export the georeferenced point cloud in Entwine Point Tile (EPT) format. Default: ``False``"
+msgstr ""
+
+#: ../../../arguments.rst:139
+#: 875595985c834a369f71c73aec9791cc
+msgid "``--pc-filter`` <positive float>"
+msgstr ""
+
+#: ../../../arguments.rst:139
+#: 73ce042a4b61474ab14c094da92c40e0
+msgid "Filters the point cloud by removing points that deviate more than N standard deviations from the local mean. Set to 0 to disable filtering. Default: ``2.5``"
+msgstr ""
+
+#: ../../../arguments.rst:142
+#: 20bb65c4ab8c4d0fafe82f8d61cd0279
+msgid "``--pc-las``"
+msgstr ""
+
+#: ../../../arguments.rst:142
+#: 3f5c13cf79924ee3a8e3eff6a4913371
+msgid "Export the georeferenced point cloud in LAS format. Default: ``False``"
 msgstr ""
 
 #: ../../../arguments.rst:145
-#: cad75861c95745388ee1e6fc567a02d7
-msgid "Default: ``9``"
+#: faa596867966454081ab3acf1c08c2b5
+msgid "``--pc-quality`` ultra |  high |  medium |  low |  lowest"
+msgstr ""
+
+#: ../../../arguments.rst:145
+#: d41e4280b616486db53ebd72e44a197f
+msgid "Set point cloud quality. Higher quality generates better, denser point clouds, but requires more memory and takes longer. Each step up in quality increases processing time roughly by a factor of 4x.. Default: ``medium``"
 msgstr ""
 
 #: ../../../arguments.rst:148
-#: c21570663a6849b98141d3937754cf70
-msgid "Number of points per octree node. For relatively low noise, values in the range of [1-5] can be used. For noisier datasets, large values in the range of [15-20] may be employed."
+#: 5fd4134cb4804fdca06d8b09c10544f9
+msgid "``--pc-rectify``"
 msgstr ""
 
-#: ../../../arguments.rst:150
-#: 838dbab7a7494f4bb4c944a756a143ab
-msgid "Default: ``1.0``"
+#: ../../../arguments.rst:148
+#: b138e3b144b943e5babc1e7e21079113
+msgid "Perform ground rectification on the point cloud. This means that wrongly classified ground points will be re-classified and gaps will be filled. Useful for generating DTMs. Default: ``False``"
 msgstr ""
 
-#: ../../../arguments.rst:153
-#: 71b0bdbffd204e608b21bc9b0f561717
-msgid "This floating point value specifies the importance that interpolation of the point samples is given in the formulation of the screened Poisson equation. The results of the original (unscreened) Poisson Reconstruction can be obtained by setting this value to ``0``."
+#: ../../../arguments.rst:151
+#: e811719bd5e44e9dace46e2b2aeef6b7
+msgid "``--pc-sample`` <positive float>"
 msgstr ""
 
-#: ../../../arguments.rst:155
-#: 88b99b17996c4c8b9554e430c0eee071
-msgid "Default: ``4``"
+#: ../../../arguments.rst:151
+#: d0b8a7d3f40148f1b84d13a555e6e061
+msgid "Filters the point cloud by keeping only a single point around a radius N (in meters). This can be useful to limit the output resolution of the point cloud. Set to 0 to disable sampling. Default: ``0``"
 msgstr ""
 
-#: ../../../arguments.rst:158
-#: 94373544199649c3808ebb5a69aba34b
-msgid "**Experimental.** Skips dense reconstruction and 3D model generation. It generates an orthophoto directly from the sparse reconstruction. If you just need an orthophoto and do not need a full 3D model, turn on this option."
+#: ../../../arguments.rst:154
+#: 6a22ca170dc64402a013783cfcea550c
+msgid "``--primary-band`` <string>"
 msgstr ""
 
-#: ../../../arguments.rst:161
-#: 8b4d9a13cb32444a8417051b37c03a4c
-msgid "Automatically crop image outputs by creating a smooth buffer around the dataset boundaries, shrinked by N meters. Use ``0`` to disable cropping."
+#: ../../../arguments.rst:154
+#: 5fa0d2b615e44d1e9f188106431a4ac4
+msgid "When processing multispectral datasets, you can specify the name of the primary band that will be used for reconstruction. It's recommended to choose a band which has sharp details and is in focus. Default: ``auto``"
+msgstr ""
+
+#: ../../../arguments.rst:157
+#: 28b5a1a529c24bb7838271138e525169
+msgid "``--project-path`` <path>"
+msgstr ""
+
+#: ../../../arguments.rst:157
+#: 12052a64e7a44f6b95e94634071d5aa6
+msgid "Path to the project folder. Your project folder should contain subfolders for each dataset. Each dataset should have an \"images\" folder."
+msgstr ""
+
+#: ../../../arguments.rst:160
+#: 644823f47c8640dcad1a83eda43280fb
+msgid "``--radiometric-calibration`` none |  camera |  camera+sun"
+msgstr ""
+
+#: ../../../arguments.rst:160
+#: e23976ab862545eca13ae0a1ede0aa30
+msgid "Set the radiometric calibration to perform on images. When processing multispectral images you should set this option to obtain reflectance values (otherwise you will get digital number values). [camera] applies black level, vignetting, row gradient gain/exposure compensation (if appropriate EXIF tags are found). [camera+sun] is experimental, applies all the corrections of [camera], plus compensates for spectral radiance registered via a downwelling light sensor (DLS) taking in consideration the angle of the sun. . Default: ``none``"
+msgstr ""
+
+#: ../../../arguments.rst:163
+#: 0ba8d09f4960491984c531e8c335e737
+msgid "``--rerun,-r`` dataset |  split |  merge |  opensfm |  openmvs |  odm_filterpoints |  odm_meshing |  mvs_texturing |  odm_georeferencing |  odm_dem |  odm_orthophoto |  odm_report"
+msgstr ""
+
+#: ../../../arguments.rst:163
+#: 03a30d23be5b450da8d4258263bb5784
+msgid "Rerun this stage only and stop. . Default: ``"
 msgstr ""
 
 #: ../../../arguments.rst:166
-#: 7555e78dc4864a339dcb00377e041e3a
-msgid "Classify the point cloud outputs using a Simple Morphological Filter. You can control the behavior of this option by tweaking the ``--dem-*`` parameters."
+#: 81209461e7be461a8dabcb15359517da
+msgid "``--rerun-all``"
 msgstr ""
 
-#: ../../../arguments.rst:168
-#: ../../../arguments.rst:173
+#: ../../../arguments.rst:166
+#: 68eb7473040a485f998b0065fbfec190
+msgid "Permanently delete all previous results and rerun the processing pipeline."
+msgstr ""
+
+#: ../../../arguments.rst:169
+#: 0ba8d09f4960491984c531e8c335e737
+msgid "``--rerun-from`` dataset |  split |  merge |  opensfm |  openmvs |  odm_filterpoints |  odm_meshing |  mvs_texturing |  odm_georeferencing |  odm_dem |  odm_orthophoto |  odm_report"
+msgstr ""
+
+#: ../../../arguments.rst:169
+#: 1ff9649ccdac4f349095a25bbd8bea77
+msgid "Rerun processing from this stage. . Default: ``"
+msgstr ""
+
+#: ../../../arguments.rst:172
+#: 71aaef5864d44c8e933194911c719ce9
+msgid "``--resize-to`` <integer>"
+msgstr ""
+
+#: ../../../arguments.rst:172
+#: 105396b70c5f42a9827245c84ce6ca79
+msgid "Legacy option (use --feature-quality instead). Resizes images by the largest side for feature extraction purposes only. Set to -1 to disable. This does not affect the final orthophoto resolution quality and will not resize the original images. Default: ``2048``"
+msgstr ""
+
+#: ../../../arguments.rst:175
+#: 5b06f9f7592a4a2ba58b8f1fad1ee740
+msgid "``--skip-3dmodel``"
+msgstr ""
+
+#: ../../../arguments.rst:175
+#: 28fb4b48d9f84e92baf1267bd703f416
+msgid "Skip generation of a full 3D model. This can save time if you only need 2D results such as orthophotos and DEMs. Default: ``False``"
+msgstr ""
+
 #: ../../../arguments.rst:178
-#: ../../../arguments.rst:225
-#: ../../../arguments.rst:230
-#: ../../../arguments.rst:235
-#: ../../../arguments.rst:240
-#: ../../../arguments.rst:245
-#: ../../../arguments.rst:286
-#: ../../../arguments.rst:296
-#: ../../../arguments.rst:315
-#: ../../../arguments.rst:323
-#: ../../../arguments.rst:328
-#: ../../../arguments.rst:342
-#: 32a642af8b09499eaa7c97156944c2f0
-#: 32a642af8b09499eaa7c97156944c2f0
-#: 32a642af8b09499eaa7c97156944c2f0
-#: 32a642af8b09499eaa7c97156944c2f0
-#: 32a642af8b09499eaa7c97156944c2f0
-#: 32a642af8b09499eaa7c97156944c2f0
-#: 32a642af8b09499eaa7c97156944c2f0
-#: 32a642af8b09499eaa7c97156944c2f0
-#: 32a642af8b09499eaa7c97156944c2f0
-#: 32a642af8b09499eaa7c97156944c2f0
-#: 32a642af8b09499eaa7c97156944c2f0
-#: 32a642af8b09499eaa7c97156944c2f0
-#: 32a642af8b09499eaa7c97156944c2f0
-#: 32a642af8b09499eaa7c97156944c2f0
-msgid "Default: ``False``"
+#: 486b5e6cca1d483cb9343ab59833dfa9
+msgid "``--skip-band-alignment``"
 msgstr ""
 
-#: ../../../arguments.rst:171
-#: 4db75f783b534a05bf95f0813bb2aba2
-msgid "Export the georeferenced point cloud in CSV format."
-msgstr ""
-
-#: ../../../arguments.rst:176
-#: 3f5c13cf79924ee3a8e3eff6a4913371
-msgid "Export the georeferenced point cloud in LAS format."
+#: ../../../arguments.rst:178
+#: 4e0b1c4b51c24668bd9e475fadcc1e36
+msgid "When processing multispectral datasets, ODM will automatically align the images for each band. If the images have been postprocessed and are already aligned, use this option. Default: ``False``"
 msgstr ""
 
 #: ../../../arguments.rst:181
-#: 73ce042a4b61474ab14c094da92c40e0
-msgid "Filters the point cloud by removing points that deviate more than N standard deviations from the local mean. Set to ``0`` to disable filtering."
+#: db4867bdb8174558908171978e10c4b3
+msgid "``--sm-cluster`` <string>"
 msgstr ""
 
-#: ../../../arguments.rst:183
-#: e215ef9e523d48d6a9095173ec7d8ca8
-msgid "Default: ``2.5``"
+#: ../../../arguments.rst:181
+#: 304030bea2384fdfa754ce9cce82a522
+msgid "URL to a ClusterODM instance for distributing a split-merge workflow on multiple nodes in parallel. Default: ``None``"
 msgstr ""
 
-#: ../../../arguments.rst:186
+#: ../../../arguments.rst:184
+#: ac82a87eae1548318b489d99915819ff
+msgid "``--smrf-scalar`` <positive float>"
+msgstr ""
+
+#: ../../../arguments.rst:184
 #: 6767f66d91ee444f914592c3ffe1b5fc
-msgid "Simple Morphological Filter elevation scalar parameter."
+msgid "Simple Morphological Filter elevation scalar parameter. Default: ``1.25``"
 msgstr ""
 
-#: ../../../arguments.rst:188
-#: 1640b0261c2f417990fa3dbd044fdf1b
-msgid "Default: ``1.25``"
+#: ../../../arguments.rst:187
+#: a7183183d7d740d792e3160520ad7957
+msgid "``--smrf-slope`` <positive float>"
 msgstr ""
 
-#: ../../../arguments.rst:191
+#: ../../../arguments.rst:187
 #: 487501610a594d46b6e93f6be4aa4028
-msgid "Simple Morphological Filter slope parameter (rise over run)."
+msgid "Simple Morphological Filter slope parameter (rise over run). Default: ``0.15``"
+msgstr ""
+
+#: ../../../arguments.rst:190
+#: 2423b9715c924ec7af3a3ca8f66e839a
+msgid "``--smrf-threshold`` <positive float>"
+msgstr ""
+
+#: ../../../arguments.rst:190
+#: 9d6cdf2437274d6c999b7a8037ea3d71
+msgid "Simple Morphological Filter elevation threshold parameter (meters). Default: ``0.5``"
 msgstr ""
 
 #: ../../../arguments.rst:193
-#: a6af052a02404796a51daa6a6658e4d1
-msgid "Default: ``0.15``"
+#: b68f3e246b7747f28bc3ff03b8550ce6
+msgid "``--smrf-window`` <positive float>"
+msgstr ""
+
+#: ../../../arguments.rst:193
+#: 2471158a569f49049b62242481e59514
+msgid "Simple Morphological Filter window radius parameter (meters). Default: ``18.0``"
 msgstr ""
 
 #: ../../../arguments.rst:196
-#: 9d6cdf2437274d6c999b7a8037ea3d71
-msgid "Simple Morphological Filter elevation threshold parameter (meters)."
+#: 781251fe532b40debfb3e56ce434783b
+msgid "``--split`` <positive integer>"
 msgstr ""
 
-#: ../../../arguments.rst:198
-#: e47ce61e154b4426901776f04dda70cb
-msgid "Default: ``0.5``"
+#: ../../../arguments.rst:196
+#: 1a8ae22a06b44437aa7bbe4d6bce0b9b
+msgid "Average number of images per submodel. When splitting a large dataset into smaller submodels, images are grouped into clusters. This value regulates the number of images that each cluster should have on average. Default: ``999999``"
 msgstr ""
 
-#: ../../../arguments.rst:201
-#: 2471158a569f49049b62242481e59514
-msgid "Simple Morphological Filter window radius parameter (meters)."
+#: ../../../arguments.rst:199
+#: f6da7045e0be46eca9eddb1c9a170117
+msgid "``--split-overlap`` <positive integer>"
 msgstr ""
 
-#: ../../../arguments.rst:203
-#: 838dbab7a7494f4bb4c944a756a143ab
-msgid "Default: ``18.0``"
+#: ../../../arguments.rst:199
+#: fd09fd44205449a28ce84e0f3411e902
+msgid "Radius of the overlap between submodels. After grouping images into clusters, images that are closer than this radius to a cluster are added to the cluster. This is done to ensure that neighboring submodels overlap. Default: ``150``"
 msgstr ""
 
-#: ../../../arguments.rst:206
-#: c21e85528cdb4d1fa0cdff3fc69195fb
-msgid "Options: ``area`` | ``gmi``"
+#: ../../../arguments.rst:202
+#: ce8aa4d9f74140cc813121173a83c8ed
+msgid "``--texturing-data-term`` gmi |  area"
+msgstr ""
+
+#: ../../../arguments.rst:202
+#: 30bda78b13ce4ab4bbf879964f048162
+msgid "When texturing the 3D mesh, for each triangle, choose to prioritize images with sharp features (gmi) or those that cover the largest area (area). Default: ``gmi``"
+msgstr ""
+
+#: ../../../arguments.rst:205
+#: 3736fa09a5464628943b26aaf64a97a5
+msgid "``--texturing-outlier-removal-type`` none |  gauss_clamping |  gauss_damping"
+msgstr ""
+
+#: ../../../arguments.rst:205
+#: bcd165f8248e4af4b825ce36a55cd5b6
+msgid "Type of photometric outlier removal method. . Default: ``gauss_clamping``"
 msgstr ""
 
 #: ../../../arguments.rst:208
-#: 72b70173fa334afcaad9cff80c183d08
-msgid "Default: ``gmi``"
+#: 40ea20bacc0d4d21b110091972a8604a
+msgid "``--texturing-skip-global-seam-leveling``"
+msgstr ""
+
+#: ../../../arguments.rst:208
+#: 2a42343952f8484fabaac39fca8e04f6
+msgid "Skip normalization of colors across all images. Useful when processing radiometric data. Default: ``False``"
 msgstr ""
 
 #: ../../../arguments.rst:211
-#: cd809e7d61ad437e8c4e512430454d9f
-msgid "Affects orthophotos only. Higher values result in sharper corners, but can affect color distribution and blurriness. Use lower values for planar areas and higher values for urban areas. The default value works well for most scenarios."
+#: ffe90bf62f7d4aa892d567cc439b4040
+msgid "``--texturing-skip-local-seam-leveling``"
 msgstr ""
 
-#: ../../../arguments.rst:213
-#: 04be46ac9a0c48eebc2e5590eaa26c12
-msgid "Default: ``16``"
+#: ../../../arguments.rst:211
+#: 13b605e6a043458c95658e3ea780f0f3
+msgid "Skip the blending of colors near seams. Default: ``False``"
 msgstr ""
 
-#: ../../../arguments.rst:216
-#: 0156d40a28134e82a8ae8076128250b7
-msgid "Type of photometric outlier removal method."
+#: ../../../arguments.rst:214
+#: 1c9a12e2b86a4742bbcbf3d64400d423
+msgid "``--texturing-tone-mapping`` none |  gamma"
 msgstr ""
 
-#: ../../../arguments.rst:218
-#: 0156d40a28134e82a8ae8076128250b7
-msgid "Options: ``none`` | ``gauss_damping`` | ``gauss_clamping``"
+#: ../../../arguments.rst:214
+#: 2008080c4b7d475a86c5754c646974fc
+msgid "Turn on gamma tone mapping or none for no tone mapping. Can be one of ['none', 'gamma']. Default: ``none``"
+msgstr ""
+
+#: ../../../arguments.rst:217
+#: 5d887603e2c042bcbda681e01ebae4b1
+msgid "``--tiles``"
+msgstr ""
+
+#: ../../../arguments.rst:217
+#: 02b4ff6840b84f77bcd7e6ac7795c9f6
+msgid "Generate static tiles for orthophotos and DEMs that are suitable for viewers like Leaflet or OpenLayers. Default: ``False``"
 msgstr ""
 
 #: ../../../arguments.rst:220
-#: 4e80902fc03a4074916db7497283dac9
-msgid "Default: ``gauss_clamping``"
+#: 23392d05ce3849e6b88e71ef2b90d36f
+msgid "``--time``"
+msgstr ""
+
+#: ../../../arguments.rst:220
+#: 48cda389a70d421491d077f52f77e63e
+msgid "Generates a benchmark file with runtime info. Default: ``False``"
 msgstr ""
 
 #: ../../../arguments.rst:223
-#: 2b0d994b3a7e44ecbf5b50adbaab9c84
-msgid "Skip geometric visibility test."
+#: cf278fc5f7f8488c8e9fc9cf45dd67ab
+msgid "``--use-3dmesh``"
 msgstr ""
 
-#: ../../../arguments.rst:228
-#: 19b6d40be5ae4d238626898dd0a2791f
-msgid "Skip global seam leveling. Useful for IR data."
+#: ../../../arguments.rst:223
+#: b14d87ed9f84456ea2de1cd4d061e889
+msgid "Use a full 3D mesh to compute the orthophoto instead of a 2.5D mesh. This option is a bit faster and provides similar results in planar areas. Default: ``False``"
 msgstr ""
 
-#: ../../../arguments.rst:233
-#: 2f649a237f7449508accae950338b29f
-msgid "Skip local seam blending."
+#: ../../../arguments.rst:226
+#: aee22a17ae194bb8b50438247ca8338d
+msgid "``--use-exif``"
+msgstr ""
+
+#: ../../../arguments.rst:226
+#: fc4c68343b0548df873b7e1acfd09bbf
+msgid "Use this tag if you have a GCP File but want to use the EXIF information for georeferencing instead. Default: ``False``"
+msgstr ""
+
+#: ../../../arguments.rst:229
+#: c0916ccfaa70421983e8a0a8812f5fe1
+msgid "``--use-fixed-camera-params``"
+msgstr ""
+
+#: ../../../arguments.rst:229
+#: e845f82fb57642e7957f1907bff02c2e
+msgid "Turn off camera parameter optimization during bundle adjustment. This can be sometimes useful for improving results that exhibit doming/bowling or when images are taken with a rolling shutter camera. Default: ``False``"
+msgstr ""
+
+#: ../../../arguments.rst:232
+#: ba5cd8feef13448a923bfcbd1295e5ad
+msgid "``--use-hybrid-bundle-adjustment``"
+msgstr ""
+
+#: ../../../arguments.rst:232
+#: a9fb769c318440028d0ca29420819c59
+msgid "Run local bundle adjustment for every image added to the reconstruction and a global adjustment every 100 images. Speeds up reconstruction for very large datasets. Default: ``False``"
+msgstr ""
+
+#: ../../../arguments.rst:235
+#: 41c087196e4e4f28ac5901a311b6f892
+msgid "``--use-opensfm-dense``"
+msgstr ""
+
+#: ../../../arguments.rst:235
+#: 6747bfd3d1204e5cb008275317675968
+msgid "Use OpenSfM to compute the dense point cloud instead of OpenMVS. Default: ``False``"
 msgstr ""
 
 #: ../../../arguments.rst:238
-#: dd6809d05ee5494483c7ad55cc80e97d
-msgid "Skip filling of holes in the mesh."
+#: ae3ea74b0d2b4257bdda61bcb1fe557a
+msgid "``--verbose,-v``"
 msgstr ""
 
-#: ../../../arguments.rst:243
-#: 349afe09612c4c229fbdbb1a5b75bf51
-msgid "Keep faces in the mesh that are not seen in any camera."
-msgstr ""
-
-#: ../../../arguments.rst:248
-#: 1c9a12e2b86a4742bbcbf3d64400d423
-msgid "Turn on gamma tone mapping or none for no tone mapping."
-msgstr ""
-
-#: ../../../arguments.rst:250
-#: c21e85528cdb4d1fa0cdff3fc69195fb
-msgid "Options: ``gamma`` | ``none``"
-msgstr ""
-
-#: ../../../arguments.rst:255
-#: ed6a8b2a17334ad4988c9253abc45166
-msgid "Path to the file containing the ground control points used for georeferencing. The file needs to have the following line format: ``easting northing height pixelrow pixelcol imagename``"
-msgstr ""
-
-#: ../../../arguments.rst:257
-#: c819e79f060c43c0b84a275e7ec8a9b1
-msgid "Default: None."
-msgstr ""
-
-#: ../../../arguments.rst:260
-#: e1de6ea392d64c34bc658c15174f417e
-msgid "Use this tag if you have a gcp_list.txt but want to use the exif geotags instead."
-msgstr ""
-
-#: ../../../arguments.rst:263
-#: 5b14f88eb2cb44f287ba191ea800bc0c
-msgid "Use this tag to build a DTM (Digital Terrain Model, ground only) using a simple morphological filter. Check the ``--dem*`` and ``--smrf*`` parameters for finer tuning."
-msgstr ""
-
-#: ../../../arguments.rst:266
-#: d997af9f85ef43d5a73f648cba817c67
-msgid "Use this tag to build a DSM (Digital Surface Model, ground + objects) using a progressive morphological filter. Check the ``--dem*`` parameters for finer tuning."
-msgstr ""
-
-#: ../../../arguments.rst:269
-#: aa383ac21fd942abbb06a05fa2cd4c59
-msgid "Number of steps used to fill areas with gaps. Set to ``0`` to disable gap filling. Starting with a radius equal to the output resolution, N different DEMs are generated with progressively bigger radius using the inverse distance weighted (IDW) algorithm and merged together. Remaining gaps are then merged using nearest neighbor interpolation."
-msgstr ""
-
-#: ../../../arguments.rst:274
-#: ac318faea29f451380d8acbd133ca514
-msgid "DSM/DTM resolution in cm / pixel."
-msgstr ""
-
-#: ../../../arguments.rst:276
-#: ../../../arguments.rst:291
-#: 421b09a84da24e0cbd3366a07e7898a0
-#: 421b09a84da24e0cbd3366a07e7898a0
-msgid "Default: ``5``"
-msgstr ""
-
-#: ../../../arguments.rst:279
-#: 6c60cd14b1ca4862b7c29fffc0c6cb0b
-msgid "Decimate the points before generating the DEM. ``1`` is no decimation (full quality). ``100`` decimates ~99% of the points. Useful for speeding up generation."
-msgstr ""
-
-#: ../../../arguments.rst:284
-#: 4c51400122124407833740ea33c6d938
-msgid "Computes an euclidean raster map for each DEM. The map reports the distance from each cell to the nearest NODATA value (before any hole filling takes place). This can be useful to isolate the areas that have been filled."
-msgstr ""
-
-#: ../../../arguments.rst:289
-#: 9f50aec10dd248e79caeb45f71fb5770
-msgid "Orthophoto resolution in cm / pixel."
-msgstr ""
-
-#: ../../../arguments.rst:294
-#: 96eda73c55b344769b046cf828a47fe8
-msgid "Set this parameter if you want a stripped geoTIFF."
-msgstr ""
-
-#: ../../../arguments.rst:299
-#: fa9586d8c9964d12af506e7fbaba211e
-msgid "Set the compression to use. Note that this could break gdal_translate if you don't know what you are doing."
-msgstr ""
-
-#: ../../../arguments.rst:301
-#: 2ccae1354a9244789fbbbe356ba5495d
-msgid "Options: ``JPEG`` | ``LZW`` | ``PACKBITS`` | ``DEFLATE`` | ``LZMA`` | ``NONE``"
-msgstr ""
-
-#: ../../../arguments.rst:303
-#: 32a642af8b09499eaa7c97156944c2f0
-msgid "Default: ``DEFLATE``"
-msgstr ""
-
-#: ../../../arguments.rst:306
-#: e92e6a0667dc46878c0b0498ada4e122
-msgid "Control whether the created orthophoto is a BigTIFF or classic TIFF. BigTIFF is a variant for files larger than 4GiB of data. See GDAL specs: https://www.gdal.org/frmt_gtiff.html for more info."
-msgstr ""
-
-#: ../../../arguments.rst:308
-#: 86d76a2a998d4759b1a3535742b1bf55
-msgid "Options: ``YES`` | ``NO`` | ``IF_NEEDED`` | ``IF_SAFER``"
-msgstr ""
-
-#: ../../../arguments.rst:310
-#: 32a642af8b09499eaa7c97156944c2f0
-msgid "Default: ``IF_SAFER``"
-msgstr ""
-
-#: ../../../arguments.rst:313
-#: faaeac2cec784a968418b021ed02370d
-msgid "Generates a polygon around the cropping area that cuts the orthophoto around the edges of features. This polygon can be useful for stitching seamless mosaics with multiple overlapping orthophotos."
-msgstr ""
-
-#: ../../../arguments.rst:318
-#: b964b921de144bab8c1c267587fcdee4
-msgid "Build orthophoto overviews using gdaladdo."
-msgstr ""
-
-#: ../../../arguments.rst:321
+#: ../../../arguments.rst:238
 #: 51f0cf7bc32e43c890dd228311b6b506
-msgid "Print additional messages to the console."
+msgid "Print additional messages to the console. Default: ``False``"
 msgstr ""
 
-#: ../../../arguments.rst:326
-#: 48cda389a70d421491d077f52f77e63e
-msgid "Generates a benchmark file with runtime info."
+#: ../../../arguments.rst:244
+#: df79565b0f024a1a9ae0c5b59fe2400a
+msgid "``--version``"
 msgstr ""
 
-#: ../../../arguments.rst:331
+#: ../../../arguments.rst:241
 #: 5aa1625a41d043deb323e8ff45c164b0
-msgid "Displays software version number and exits."
+msgid "Displays version number and exits."
 msgstr ""
 
-#: ../../../arguments.rst:334
-#: 1a8ae22a06b44437aa7bbe4d6bce0b9b
-msgid "Average number of images per submodel. When splitting a large dataset into smaller submodels, images are grouped into clusters. This value regulates the number of images that each cluster should have on average."
-msgstr ""
-
-#: ../../../arguments.rst:337
-#: fd09fd44205449a28ce84e0f3411e902
-msgid "Radius of the overlap between submodels. After grouping images into clusters, images that are closer than this radius to a cluster are added to the cluster. This is done to ensure that neighboring submodels overlap."
-msgstr ""
-
-#: ../../../arguments.rst:340
-#: 678212a55dd4442294d64fe32ba38696
-msgid "Delete heavy intermediate files (such as original orthos, dtm, dsm) to optimize disk space usage, while keeping the compressed versions. This affects the ability to restart the pipeline from an intermediate stage, but allows datasets to be processed on machines that don't have sufficient disk space available. Also, in this mode, the \"reports\" does not get written under the output 'opensfm' folder."
-msgstr ""
-
-#: ../../../arguments.rst:345
-#: 304030bea2384fdfa754ce9cce82a522
-msgid "URL to a ClusterODM instance for distributing a split-merge workflow on multiple nodes in parallel."
-msgstr ""
-
-#: ../../../arguments.rst:347
-#: c819e79f060c43c0b84a275e7ec8a9b1
-msgid "Default: *None*"
-msgstr ""
-
-#: ../../../arguments.rst:350
-#: fc4735a7c39345cb9107ca459957bb80
-msgid "Choose what to merge in the merge step in a split dataset. By default all available outputs are merged."
-msgstr ""
-
-#: ../../../arguments.rst:352
-#: 32a642af8b09499eaa7c97156944c2f0
-msgid "Default: ``all``"
-msgstr ""
-
-#: ../../../arguments.rst:355
+#: ../../../arguments.rst:246
 #: 4f1460a174624a2baad4687622e2d5c7
 msgid "`Learn to edit <https://github.com/opendronemap/docs#how-to-make-your-first-contribution>`_ and help improve `this page <https://github.com/OpenDroneMap/docs/blob/publish/source/arguments.rst>`_!"
 msgstr ""
